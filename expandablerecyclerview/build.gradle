@@ -1,0 +1,122 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'expandablerecyclerview'
+    publishedGroupId = 'com.ofcat.expandablerecyclerview'
+    libraryName = 'ExpandableRecyclerView'
+    artifact = 'expandablerecyclerview'
+    libraryDescription = 'A wrapper Library using okhttp and gson to make doing http operation much easier.'
+    siteUrl = 'https://github.com/orangefallers/ExpandableRecyclerView'
+    gitUrl = 'https://github.com/orangefallers/ExpandableRecyclerView.git'
+    libraryVersion = '1.0.0'
+    developerId = 'orangefallers'
+    developerName = 'Kevin Hsieh'
+    developerEmail = 'orangefaller@gmail.com'
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+    publish = true
+}
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.core:core-ktx:1.2.0-rc01'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
+
+//task javadoc(type: Javadoc) {
+//    source = android.sourceSets.main.java.srcDirs
+//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+//}
+
+//group = "com.ofcat.expandablerecyclerview" // Maven Group ID for the artifact，我这里填的包名
+//install {
+//    repositories.mavenInstaller {
+//        // 配置POM.xml的参数
+//        pom {
+//            project {
+//                packaging 'aar'
+//                name 'expandablerecyclerview' //项目描述
+//                url 'https://github.com/orangefallers/ExpandableRecyclerView'
+//                licenses {
+//                    license {
+//                        name 'The Apache Software License, Version 2.0'
+//                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//                    }
+//                }
+//                developers {
+//                    developer {
+//                        id 'orangefallers' //我这里填了公司
+//                        name 'Kevin Hsieh' //我这里填了自己名字
+//                        email 'orangefaller@gmail.com' //我这里填了自己邮箱
+//                    }
+//                }
+//                scm {
+//                    connection 'https://github.com/orangefallers/ExpandableRecyclerView.git'
+//                    developerConnection 'https://github.com/orangefallers/ExpandableRecyclerView.git'
+//                    url 'https://github.com/orangefallers/ExpandableRecyclerView'
+//                }
+//            }
+//        }
+//    }
+//}
+
+//加這行 是避免執行 gradlew install 時, javadoc task build fail
+afterEvaluate {
+    javadoc.classpath += files(android.libraryVariants.collect { variant ->
+        variant.javaCompile.classpath.files
+    })
+}
+
+//Properties properties = new Properties()
+//properties.load(project.rootProject.file('local.properties').newDataInputStream())
+//bintray {
+//    user = properties.getProperty("bintray.user")
+//    key = properties.getProperty("bintray.apikey")
+//    configurations = ['archives']
+//    pkg {
+//        repo = "maven"
+//        name = "expandablerecyclerview"    //发布到JCenter上的项目名字
+//        websiteUrl = 'https://github.com/orangefallers/ExpandableRecyclerView'
+//        vcsUrl = 'https://github.com/orangefallers/ExpandableRecyclerView.git'
+//        licenses = ["Apache-2.0"]
+//        publish = true
+//    }
+//}
+
+
+apply from: 'https://raw.githubusercontent.com/attwellBrian/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/attwellBrian/JCenter/master/bintrayv1.gradle'
+

@@ -1,0 +1,2 @@
+include ':app', ':expandablerecyclerview'
+rootProject.name='ExpandableRecyclerViewDemo'
