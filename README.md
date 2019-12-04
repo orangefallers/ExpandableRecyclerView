@@ -60,7 +60,26 @@ implementation 'com.ofcat.expandablerecyclerview:expandablerecyclerview:1.0.0'
 }
 ```
 ---
-4.ExpandableRecyclerView SetAdapter
+4.實作 自定義的GroupViewHolder ChildViewHolder
+```
+    class DemoViewGroupHolder extends ViewHolderGroup {
+
+        public DemoViewGroupHolder(View itemView) {
+            super(itemView);
+        }
+
+    }
+
+    class DemoViewChildHolder extends ViewHolderChild {
+
+        public DemoViewChildHolder(View itemView) {
+            super(itemView);
+        }
+
+    }
+```
+---
+5.ExpandableRecyclerView SetAdapter
 ```
 ExpandableRecycylerView expandableRecyclerView = findViewById(R.id.expandableRecycler);
 expandableRecyclerView.setAdapter(new CustomExpandableRecyclerAdapter());
