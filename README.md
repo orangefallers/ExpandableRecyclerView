@@ -2,6 +2,10 @@
 ExpandableRecyclerView 介紹
 
 ---
+# 效果展示
+![image](https://github.com/orangefallers/ExpandableRecyclerViewDemo/blob/master/expandablerecyclerview/expandable_domo.gif)
+
+---
 1.如何引用
 ```
 implementation 'com.ofcat.expandablerecyclerview:expandablerecyclerview:1.0.0'
