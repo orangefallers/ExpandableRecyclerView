@@ -1,5 +1,6 @@
 # ExpandableRecyclerView
-ExpandableRecyclerView 介紹
+[ ![Download](https://api.bintray.com/packages/orangefallers/maven/ExpandableRecyclerView/images/download.svg?version=1.0.2) ](https://bintray.com/orangefallers/maven/ExpandableRecyclerView/1.0.2/link)
+
 
 ---
 # 效果展示
