@@ -1,24 +1,29 @@
 apply plugin: 'com.android.library'
+//apply plugin: 'com.novoda.bintray-release' // 新增
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'expandablerecyclerview'
+    bintrayName = 'ExpandableRecyclerView'
     publishedGroupId = 'com.ofcat.expandablerecyclerview'
-    libraryName = 'ExpandableRecyclerView'
     artifact = 'expandablerecyclerview'
-    libraryDescription = 'A wrapper Library using okhttp and gson to make doing http operation much easier.'
+
+    libraryName = 'expandablerecyclerview'
+    libraryDescription = 'Android Custom ExpandableRecyclerView'
+    libraryVersion = '1.0.2'
+
     siteUrl = 'https://github.com/orangefallers/ExpandableRecyclerView'
     gitUrl = 'https://github.com/orangefallers/ExpandableRecyclerView.git'
-    libraryVersion = '1.0.0'
+
     developerId = 'orangefallers'
     developerName = 'Kevin Hsieh'
     developerEmail = 'orangefaller@gmail.com'
+
     licenseName = 'The Apache Software License, Version 2.0'
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-    publish = true
+//    allLicenses = ["Apache-2.0"]
+    allLicenses = 'Apache-2.0'
 }
 
 android {
@@ -30,7 +35,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
-        versionName "1.0.0"
+        versionName "1.0.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -55,6 +60,17 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
+
+//publish { // 新增
+//    userOrg = 'orangefallers' // 注册bintray时的username
+//    groupId = 'com.ofcat' // 项目包名
+//    artifactId = 'expandablerecyclerview' // 项目名
+//    publishVersion = '1.0.0' // 发布版本号
+//    desc = 'Summarize the tools or methods commonly used in routine development' // 项目描述，可选项
+//    website = 'https://github.com/orangefallers/ExpandableRecyclerView' // 项目站点，可选项
+//
+//}
+
 
 //task javadoc(type: Javadoc) {
 //    source = android.sourceSets.main.java.srcDirs
@@ -91,6 +107,27 @@ dependencies {
 //            }
 //        }
 //    }
+//}
+
+//task sourcesJar(type: Jar) {
+//    from android.sourceSets.main.java.srcDirs
+//    classifier = 'sources'
+//}
+//// 生成jarDoc的task，不需要修改。
+//task javadoc(type: Javadoc) {
+//    source = android.sourceSets.main.java.srcDirs
+//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+//    // destinationDir = file("../javadoc/")
+//    failOnError false // 忽略註釋語法錯誤，如果用jdk1.8你的註釋寫的不規范就編譯不過。
+//}
+//// 生成javaDoc的jar，不需要修改。
+//task javadocJar(type: Jar, dependsOn: javadoc) {
+//    classifier = 'javadoc'
+//    from javadoc.destinationDir
+//}
+//artifacts {
+//    archives javadocJar
+//    archives sourcesJar
 //}
 
 //加這行 是避免執行 gradlew install 時, javadoc task build fail
