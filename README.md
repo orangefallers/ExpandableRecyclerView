@@ -8,13 +8,13 @@
 
 ---
 1.如何引用
-```
-implementation 'com.ofcat.expandablerecyclerview:expandablerecyclerview:1.0.0'
+```java
+implementation 'com.ofcat.expandablerecyclerview:expandablerecyclerview:1.0.2'
 ```
 
 ---
 2.XML 使用 ExpandalbeRecyclerView
-```
+```xml
  <com.ofcat.expandablerecyclerview.ExpandableRecyclerView
         android:id="@+id/expandableRecycler"
         android:layout_width="0dp"
@@ -26,7 +26,7 @@ implementation 'com.ofcat.expandablerecyclerview:expandablerecyclerview:1.0.0'
  ```
  ---
  3.實作 ExpandableRecyclerAdapter
- ```
+ ```java
  public class CustomExpandableRecyclerAdapter extends ExpandableRecyclerAdapter {
     @Override 
     public int getGroupCount() {
@@ -61,26 +61,26 @@ implementation 'com.ofcat.expandablerecyclerview:expandablerecyclerview:1.0.0'
 ```
 ---
 4.實作 自定義的GroupViewHolder ChildViewHolder
-```
-    class DemoViewGroupHolder extends ViewHolderGroup {
+```java
+class DemoViewGroupHolder extends ViewHolderGroup {
 
-        public DemoViewGroupHolder(View itemView) {
-            super(itemView);
-        }
-
+    public DemoViewGroupHolder(View itemView) {
+        super(itemView);
     }
 
-    class DemoViewChildHolder extends ViewHolderChild {
+}
 
-        public DemoViewChildHolder(View itemView) {
-            super(itemView);
-        }
+class DemoViewChildHolder extends ViewHolderChild {
 
+    public DemoViewChildHolder(View itemView) {
+        super(itemView);
     }
+
+}
 ```
 ---
 5.ExpandableRecyclerView SetAdapter
-```
+```java
 ExpandableRecycylerView expandableRecyclerView = findViewById(R.id.expandableRecycler);
 expandableRecyclerView.setAdapter(new CustomExpandableRecyclerAdapter());
 ```
